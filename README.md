@@ -277,4 +277,4 @@ A conexão é feita via `supabase-config.js` usando a anon key do projeto.
 
 ## Autores
 
-**Igor Philipo / João Vinícius / Kamylle / Roseli** — Faculdade ESUDA
+**Igor Philipo / Roseli** — Faculdade ESUDA
