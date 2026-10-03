@@ -1,0 +1,59 @@
+<div id="dashboard-page" class="page-content fade-in">
+    <div class="glass-card p-8 mb-8">
+        <h2 class="text-3xl font-bold text-white mb-2">Bem-vindo(a), <span id="user-name" class="text-green-400"></span>!</h2>
+        <div class="bg-green-500/10 rounded-xl p-4 mb-6 border border-green-500/20">
+            <p class="text-lg text-gray-200">💰 Seu saldo atual: <span id="user-coins" class="font-bold text-green-400 text-2xl">0</span> moedas</p>
+        </div>
+
+        <div id="activity-form-container">
+            <h3 class="text-2xl font-bold text-white mt-6 mb-4">🌱 Registrar Atividade Sustentável</h3>
+            <form id="activity-form" class="flex flex-col md:flex-row gap-4">
+                <select id="transport-type" class="select-glass flex-1" required>
+                    <option value="">Selecione o transporte...</option>
+                    <option value="bicicleta">🚲 Bicicleta (0.5 moedas/km)</option>
+                    <option value="caminhada">🚶 Caminhada (0.4 moedas/km)</option>
+                    <option value="transportePublico">🚌 Transporte Público (0.3 moedas/km)</option>
+                    <option value="carroEletrico">⚡ Carro Elétrico (0.2 moedas/km)</option>
+                </select>
+                <input type="number" id="distance" placeholder="Distância (km)" class="input-glass flex-1" step="0.1" required>
+                <input type="number" id="activity-duration" placeholder="Duração (min)" class="input-glass flex-1" min="1" required>
+                <input type="date" id="activity-date" class="input-glass flex-1" required>
+                <button type="submit" class="btn-glass text-white py-2 px-6 rounded-xl font-semibold">Registrar</button>
+            </form>
+        </div>
+
+        <div id="recent-activity" class="mt-6 p-4 bg-green-500/10 rounded-xl border border-green-500/20 hidden">
+            <p class="font-semibold text-green-400">✅ Atividade registrada com sucesso!</p>
+            <p class="text-gray-200">🚲 Transporte: <span id="recent-transport" class="font-medium"></span></p>
+            <p class="text-gray-200">📏 Distância: <span id="recent-distance" class="font-medium"></span> km</p>
+            <p class="text-gray-200">💰 Moedas ganhas: <span id="recent-coins" class="font-bold text-green-400"></span></p>
+        </div>
+    </div>
+
+    <div class="glass-card p-8">
+        <h3 class="text-2xl font-bold text-white mb-4">📋 Histórico de Atividades</h3>
+        <div id="activity-history-list" class="space-y-3">
+            <p class="text-gray-400 text-center py-8" id="no-recent-activities">Nenhuma atividade registrada ainda. Comece agora mesmo! 🌱</p>
+        </div>
+    </div>
+
+    <div class="glass-card p-8 mt-8">
+        <h3 class="text-2xl font-bold text-white mb-6 text-center">🌍 Impacto Ambiental</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="text-center">
+                <div class="w-32 h-32 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-red-500/30">
+                    <span class="text-4xl">🏭</span>
+                </div>
+                <h4 class="text-xl font-semibold text-white mb-2">O Problema</h4>
+                <p class="text-gray-300">O CO₂ é o principal gás do efeito estufa, causando aquecimento global e mudanças climáticas.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-32 h-32 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500/30">
+                    <span class="text-4xl">🌱</span>
+                </div>
+                <h4 class="text-xl font-semibold text-white mb-2">A Solução</h4>
+                <p class="text-gray-300">Cada atividade sustentável reduz as emissões de CO₂ e te recompensa com moedas!</p>
+            </div>
+        </div>
+    </div>
+</div>

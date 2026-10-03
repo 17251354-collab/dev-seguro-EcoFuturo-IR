@@ -1,0 +1,85 @@
+<div id="admin-partners-page" class="page-content fade-in">
+    <div class="glass-card p-8">
+        <h2 class="text-3xl font-bold text-white mb-6 text-center">🤝 Gerenciar Parceiros e Benefícios</h2>
+        <div class="mb-8 p-6 bg-blue-500/10 rounded-xl border border-blue-500/20">
+            <h3 class="text-2xl font-semibold text-white mb-4">🏢 Parceiros (<span id="partner-count">0</span>)</h3>
+            <form id="admin-add-partner-form" class="flex gap-4 mb-6 flex-wrap">
+                <input type="text" id="partner-name" placeholder="Nome do Parceiro" class="input-glass flex-1" required>
+                <input type="text" id="partner-cnpj" placeholder="CNPJ" class="input-glass w-48" required>
+                <button type="submit" class="btn-glass-secondary text-white py-2 px-6 rounded-xl font-semibold">Adicionar</button>
+            </form>
+            <div class="overflow-x-auto glass-table">
+                <table class="min-w-full divide-y divide-white/10">
+                    <thead class="bg-blue-500/20">
+                        <tr><th class="px-6 py-3 text-left text-xs font-medium text-white uppercase">Parceiro</th><th class="px-6 py-3 text-left text-xs font-medium text-white uppercase">CNPJ</th><th class="px-6 py-3 text-left text-xs font-medium text-white uppercase">Ações</th></tr>
+                    </thead>
+                    <tbody id="admin-partner-list-body"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="p-6 bg-green-500/10 rounded-xl border border-green-500/20">
+            <h3 class="text-2xl font-semibold text-white mb-4">🎁 Gerenciar Benefícios</h3>
+            <form id="admin-add-benefit-form" class="space-y-4 mb-6 p-4 bg-white/5 rounded-xl">
+                <h4 class="text-xl font-medium text-white">Adicionar Novo Benefício</h4>
+                <input type="text" id="benefit-name" placeholder="Nome" class="input-glass w-full" required>
+                <input type="number" id="benefit-cost" placeholder="Custo (moedas)" class="input-glass w-full" required min="1">
+                <input type="number" id="benefit-stock" placeholder="Estoque" class="input-glass w-full" required min="0">
+                <select id="benefit-partner" class="select-glass w-full" required>
+                    <option value="">Selecione o Parceiro...</option>
+                </select>
+                <button type="submit" class="btn-glass w-full text-white py-3 rounded-xl font-semibold">Adicionar</button>
+            </form>
+            <div class="overflow-x-auto glass-table">
+                <table class="min-w-full divide-y divide-white/10">
+                    <thead class="bg-green-500/20">
+                        <tr><th class="px-6 py-3 text-left text-xs font-medium text-white uppercase">ID</th><th class="px-6 py-3 text-left text-xs font-medium text-white uppercase">Benefício</th><th class="px-6 py-3 text-left text-xs font-medium text-white uppercase">Custo</th><th class="px-6 py-3 text-left text-xs font-medium text-white uppercase">Estoque</th><th class="px-6 py-3 text-left text-xs font-medium text-white uppercase">Parceiro</th><th class="px-6 py-3 text-left text-xs font-medium text-white uppercase">Ações</th></tr>
+                    </thead>
+                    <tbody id="admin-benefit-list-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-partner-modal" class="message-box-overlay hidden">
+        <div class="message-box max-w-lg w-full">
+            <h3 class="text-2xl font-bold text-white mb-4">✏️ Editar Parceiro</h3>
+            <form id="admin-edit-partner-form" class="space-y-4 text-left">
+                <input type="hidden" id="edit-partner-id">
+                <label class="block text-gray-300">Nome:</label>
+                <input type="text" id="edit-partner-name" class="input-glass w-full" required>
+                <label class="block text-gray-300">CNPJ:</label>
+                <input type="text" id="edit-partner-cnpj" class="input-glass w-full" required>
+                <div class="flex justify-end space-x-4 pt-4">
+                    <button type="button" class="btn-cancel-edit-partner bg-gray-600 text-white py-2 px-6 rounded-xl hover:bg-gray-700">Cancelar</button>
+                    <button type="submit" class="btn-glass text-white py-2 px-6 rounded-xl">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="edit-benefit-modal" class="message-box-overlay hidden">
+        <div class="message-box max-w-lg w-full">
+            <h3 class="text-2xl font-bold text-white mb-4">✏️ Editar Benefício</h3>
+            <form id="admin-edit-benefit-form" class="space-y-4 text-left">
+                <input type="hidden" id="edit-benefit-id">
+                <label class="block text-gray-300">Nome:</label>
+                <input type="text" id="edit-benefit-name" class="input-glass w-full" required>
+                <label class="block text-gray-300">Custo (moedas):</label>
+                <input type="number" id="edit-benefit-cost" class="input-glass w-full" required min="1">
+                <label class="block text-gray-300">Estoque:</label>
+                <input type="number" id="edit-benefit-stock" class="input-glass w-full" required min="0">
+                <label class="block text-gray-300">Público-Alvo:</label>
+                <div class="flex flex-wrap gap-3 text-white text-sm" id="edit-benefit-audience">
+                    <label><input type="checkbox" value="aluno" checked> Aluno</label>
+                    <label><input type="checkbox" value="professor" checked> Professor</label>
+                    <label><input type="checkbox" value="funcionarioEsuda" checked> Funcionário</label>
+                    <label><input type="checkbox" value="comunidadeExterna" checked> Externo</label>
+                </div>
+                <div class="flex justify-end space-x-4 pt-4">
+                    <button type="button" class="btn-cancel-edit-benefit bg-gray-600 text-white py-2 px-6 rounded-xl hover:bg-gray-700">Cancelar</button>
+                    <button type="submit" class="btn-glass text-white py-2 px-6 rounded-xl">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

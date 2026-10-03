@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOFUTURO ESUDA - Transforme Sustentabilidade em Recompensas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div id="background-overlay" class="background-overlay">
+        <div id="bg-img-1" class="absolute inset-0 background-image show" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1920&h=1080&fit=crop');"></div>
+        <div id="bg-img-2" class="absolute inset-0 background-image hide" style="background-image: url('https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=1920&h=1080&fit=crop');"></div>
+        <div id="bg-img-3" class="absolute inset-0 background-image hide" style="background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop');"></div>
+    </div>
+
+    <div class="relative z-10 w-full min-h-screen flex flex-col">
+        <header id="public-header" class="glass-header w-full shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
+            <div class="flex items-center space-x-3">
+                <img src="LOGO_EcoFuturo.png" alt="EcoFuturo Esuda Logo" class="logo-image" onerror="this.onerror=null; this.src='https://placehold.co/180x60/2d3748/22c55e?text=EcoFuturo+Esuda';">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent">ECOFUTURO ESUDA</h1>
+            </div>
+            <div>
+                <div id="show-login-btn" class="profile-icon" title="Entrar/Cadastrar">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <header id="main-header" class="glass-header w-full shadow-md p-4 flex justify-between items-center sticky top-0 z-50 transition-all duration-300" style="display: none;">
+            <div class="flex items-center space-x-3">
+                <img src="LOGO_EcoFuturo.png" alt="EcoFuturo Esuda Logo" class="logo-image" onerror="this.onerror=null; this.src='https://placehold.co/180x60/2d3748/22c55e?text=EcoFuturo+Esuda';">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent">ECOFUTURO ESUDA</h1>
+            </div>
+            <div id="header-coins" class="hidden md:flex items-center space-x-2 text-yellow-400 font-bold mr-4">
+                <span>💰</span><span id="header-user-coins">0</span>
+            </div>
+            <button id="hamburger-menu-btn" class="hamburger-btn text-white focus:outline-none md:hidden p-2 rounded-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <nav id="main-nav-desktop" class="hidden md:flex items-center space-x-4"></nav>
+        </header>
+
+        <div id="auth-modal" class="login-modal hidden">
+            <div class="login-modal-content">
+                <div class="glass-card p-8 w-full">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 id="modal-title" class="text-2xl font-bold text-white">Entrar</h2>
+                        <button id="close-modal-btn" class="text-gray-400 hover:text-white text-2xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-all">&times;</button>
+                    </div>
+
+                    <form id="login-form" class="space-y-4">
+                        <input type="email" id="login-email" placeholder="E-mail" class="input-glass w-full">
+                        <input type="password" id="login-password" placeholder="Senha" class="input-glass w-full">
+                        <button type="submit" class="btn-glass w-full text-white py-3 rounded-xl font-semibold">Entrar</button>
+                    </form>
+
+                    <form id="cadastro-form" class="space-y-4 hidden">
+                        <input type="text" id="cadastro-nome" placeholder="Nome Completo" class="input-glass w-full" required>
+                        <input type="email" id="cadastro-email" placeholder="E-mail" class="input-glass w-full" required>
+                        <input type="password" id="cadastro-password" placeholder="Senha (6-8 caracteres)" class="input-glass w-full" required minlength="6" maxlength="8">
+                        <select id="cadastro-tipo" class="select-glass w-full" required>
+                            <option value="">Você é...</option>
+                            <option value="aluno">Aluno</option>
+                            <option value="professor">Professor</option>
+                            <option value="funcionarioEsuda">Funcionário Esuda</option>
+                            <option value="comunidadeExterna">Comunidade Externa</option>
+                        </select>
+                        <button type="submit" class="btn-glass w-full text-white py-3 rounded-xl font-semibold">Cadastrar</button>
+                    </form>
+
+                    <p class="mt-4 text-sm text-gray-300 text-center">
+                        <a href="#" id="toggle-auth-modal" class="link-glass">Ainda não tem conta? Cadastre-se</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="side-menu" class="glass-side-menu fixed top-0 left-0 w-64 h-full shadow-lg transform -translate-x-full transition-transform duration-300 z-[1001]">
+            <div class="p-4 flex justify-between items-center border-b border-green-500/20">
+                <h2 class="text-xl font-bold text-white">Menu</h2>
+                <button id="close-side-menu-btn" class="text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav id="main-nav-side" class="flex flex-col p-4 space-y-2"></nav>
+            <button id="btn-logout-side" class="absolute bottom-4 left-4 w-56 text-left btn-glass-danger text-white font-medium px-3 py-2 rounded-lg">Sair</button>
+        </div>
+        <div id="side-menu-backdrop" class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300 z-[1000]"></div>
+
+        <main id="page-container" class="flex-grow container mx-auto px-4 py-8 pb-20 relative w-full"></main>
+
+        <footer class="glass-footer w-full text-white py-3 text-center">
+            <p class="text-sm text-gray-300">Igor Philipo / João Vinícius/ Kamylle / Roseli ® Todos os direitos reservados</p>
+        </footer>
+
+        <div id="toast-container" class="fixed bottom-4 right-4 z-[9999] flex flex-col-reverse gap-2 pointer-events-none"></div>
+        <div id="coin-animation" class="moeda-animada hidden"><div class="text-6xl">💰</div></div>
+        <div id="message-box-overlay" class="message-box-overlay hidden"><div class="message-box"><p id="message-text" class="text-lg text-white"></p><button id="message-box-ok" class="btn-glass text-white py-2 px-6 rounded-xl mt-4">OK</button></div></div>
+        <div id="qr-code-modal" class="message-box-overlay hidden"><div class="message-box max-w-lg w-full"><h3 class="text-2xl font-bold text-white mb-4">✅ Voucher Utilizado!</h3><p class="text-lg text-gray-300 mb-4">Apresente este código:</p><div class="p-4 bg-white rounded-xl mx-auto w-48 h-48 flex items-center justify-center"><img id="qr-code-img" class="w-full h-full object-contain"></div><button id="qr-code-modal-ok" class="btn-glass text-white py-2 px-6 rounded-xl mt-4">Fechar</button></div></div>
+        <div id="edit-user-modal" class="message-box-overlay hidden"><div class="message-box max-w-lg w-full"><h3 class="text-2xl font-bold text-white mb-4">✏️ Editar Usuário</h3><form id="admin-edit-user-form" class="space-y-4 text-left"><input type="hidden" id="edit-user-original-email"><label class="block text-gray-300">Nome:</label><input type="text" id="edit-user-nome" class="input-glass w-full" required><label class="block text-gray-300">E-mail:</label><input type="email" id="edit-user-email" class="input-glass w-full bg-white/5" disabled><label class="block text-gray-300">Tipo:</label><select id="edit-user-tipo" class="select-glass w-full" required><option value="aluno">Aluno</option><option value="professor">Professor</option><option value="funcionarioEsuda">Funcionário Esuda</option><option value="comunidadeExterna">Comunidade Externa</option></select><label class="block text-gray-300">Moedas:</label><input type="number" id="edit-user-coins" class="input-glass w-full" min="0" step="0.01"><div class="flex justify-end space-x-4 pt-4"><button type="button" id="btn-cancel-edit" class="bg-gray-600 text-white py-2 px-6 rounded-xl hover:bg-gray-700">Cancelar</button><button type="submit" class="btn-glass text-white py-2 px-6 rounded-xl">Salvar</button></div></form></div></div>
+    </div>
+</body>
+</html>
