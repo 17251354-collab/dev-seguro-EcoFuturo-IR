@@ -1,0 +1,36 @@
+<div id="resgate-page" class="page-content fade-in">
+    <div class="glass-card p-8">
+        <h2 class="text-3xl font-bold text-white mb-6 text-center">🎫 Meus Vouchers</h2>
+        <div class="mb-8">
+            <h3 class="text-2xl font-semibold text-white mb-4 border-b border-green-500/30 pb-2">📌 Vouchers Ativos</h3>
+            <div id="pending-vouchers-list" class="space-y-4">
+                <p id="no-pending-vouchers" class="text-gray-400 text-center py-8">Nenhum voucher ativo no momento.</p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-2xl font-semibold text-white mb-4 border-b border-green-500/30 pb-2">📜 Histórico</h3>
+            <div id="history-vouchers-list" class="space-y-4">
+                <p id="no-history-vouchers" class="text-gray-400 text-center py-8">Nenhum voucher no histórico.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card p-8 mt-6">
+        <h3 class="text-2xl font-bold text-white mb-4">💸 Transferir Moedas</h3>
+        <form id="transfer-form" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">Email do destino</label>
+                <input type="email" id="transfer-email" required class="w-full px-3 py-2 bg-white/10 rounded-lg text-white border border-white/20 focus:border-green-500 outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">Valor</label>
+                <input type="number" id="transfer-amount" min="0.01" step="0.01" required class="w-full px-3 py-2 bg-white/10 rounded-lg text-white border border-white/20 focus:border-green-500 outline-none">
+            </div>
+            <button type="submit" class="w-full py-2 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg text-white font-semibold hover:from-green-500 hover:to-blue-500 transition-all">Enviar</button>
+        </form>
+        <div id="transfer-history" class="mt-6">
+            <h4 class="text-lg font-semibold text-white mb-2">📤 Últimas transferências</h4>
+            <div id="transfer-history-list" class="text-gray-300 text-sm space-y-1"></div>
+        </div>
+    </div>
+</div>
