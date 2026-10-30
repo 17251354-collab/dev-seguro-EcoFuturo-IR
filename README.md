@@ -10,7 +10,18 @@ A proposta é transformar práticas sustentáveis do dia a dia — como andar de
 
 ## Arquitetura e Padrões de Projeto
 
-A aplicação utiliza **4 padrões de projeto** (GoF) na sua estrutura:
+O projeto foi evoluído para uma arquitetura Client-Server, dividida em duas camadas: um Front-end (interface do usuário) e um Back-end (API de regras de negócio).
+
+🔹 Back-end (Python/FastAPI)
+O back-end foi desenvolvido em Python 3.12 com o framework FastAPI.
+- Banco de Dados: Supabase (PostgreSQL).
+- Segurança: Autenticação via JWT e criptografia de senhas com Bcrypt.
+- Documentação: Swagger UI (OpenAPI) gerado automaticamente.
+- Validação: Pydantic.
+- Requisitos: 72 requisitos implementados (36 RF, 14 RN, 22 RNF).
+
+🔹 Front-end (JavaScript)
+A aplicação utiliza 4 padrões de projeto (GoF) na sua estrutura:
 
 ### 🔹 Singleton — `SistemaEcofuturo`
 
