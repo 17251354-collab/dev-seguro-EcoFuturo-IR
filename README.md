@@ -74,8 +74,7 @@ O **Observer** desacopla as notificações visuais da lógica de negócio. Quand
 ---
 
 ## Estrutura de Arquivos
-
-```
+```text
 ecofuturo/
 ├── index.html                  → SPA base (auth modal, headers, containers)
 ├── styles.css                  → Estilos globais (~370 linhas)
