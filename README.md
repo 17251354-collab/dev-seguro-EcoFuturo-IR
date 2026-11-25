@@ -250,6 +250,7 @@ Acesse a aplicação online: [**ecofuturoesuda.netlify.app**](https://ecofuturoe
 
 5. Abrir no navegador: `http://localhost:8080`
 
+
 📱 Aplicativo Android
 Abra o Android Studio.
 
