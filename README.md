@@ -250,6 +250,13 @@ Acesse a aplicação online: [**ecofuturoesuda.netlify.app**](https://ecofuturoe
 
 5. Abrir no navegador: `http://localhost:8080`
 
+📱 Aplicativo Android
+Abra o Android Studio.
+
+Selecione Open e escolha especificamente a subpasta android/ (e não a pasta raiz do repositório).
+
+Aguarde a sincronização do Gradle e execute em um emulador ou dispositivo físico.
+
 ---
 
 ## Executar Testes
