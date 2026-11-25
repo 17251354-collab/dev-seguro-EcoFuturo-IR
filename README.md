@@ -85,6 +85,13 @@ ecofuturo/
 ├── supabase-config.js          → Configuração do cliente Supabase
 ├── package.json                → Dependências (Vitest, jsdom)
 ├── vitest.config.js            → Configuração do Vitest
+├── android/                    → Aplicativo Mobile Android (Kotlin / Gradle)
+│   ├── app/                    → Código-fonte, layouts e recursos do app
+│   ├── gradle/                 → Configurações do Gradle Wrapper
+│   ├── build.gradle.kts        → Script de build principal
+│   ├── settings.gradle.kts     → Configuração dos módulos do projeto
+│   ├── gradle.properties       → Propriedades do ambiente Gradle
+│   └── gradlew / gradlew.bat   → Executáveis do Gradle Wrapper
 ├── strategies/                 → Strategy Pattern (cálculo de moedas/CO₂)
 │   ├── TransportStrategy.js    → Classe base abstrata
 │   ├── BicicletaStrategy.js
@@ -114,7 +121,7 @@ ecofuturo/
 │   ├── EcofuturoFacade.test.js → 10 testes (delegação da Facade)
 │   └── smoke.test.js           → 6 testes (importação de módulos)
 ├── EcoFuturoEsuda.html         → Backup do monolítico original (não usado)
-└── README.md                   → Este arquivo
+└── README.md                   → Documentação do projeto
 ```
 
 ---
