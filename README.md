@@ -24,10 +24,12 @@ O back-end foi desenvolvido em Python 3.12 com o framework FastAPI.
 - Validação: Pydantic.
 - Requisitos: 72 requisitos implementados (36 RF, 14 RN, 22 RNF).
 
-  🔹 Mobile (Android / Kotlin)
+
+🔹 Mobile (Android / Kotlin)
 O aplicativo mobile foi desenvolvido nativamente para Android:
 - Linguagem: Kotlin com scripts de build em Gradle (Kotlin DSL).
 - Estrutura: Organizado na pasta `android/` utilizando o módulo principal `app/`.
+
 
 🔹 Front-end (JavaScript)
 A aplicação utiliza 4 padrões de projeto (GoF) na sua estrutura:
