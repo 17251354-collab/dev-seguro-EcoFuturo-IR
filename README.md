@@ -2,7 +2,11 @@
 
 ## Sobre o Projeto
 
-O **ECOFUTURO ESUDA** é uma aplicação web de sustentabilidade que incentiva o uso de transportes ecológicos, recompensando os usuários com **moedas virtuais** que podem ser trocadas por benefícios reais oferecidos por parceiros da Faculdade ESUDA.
+O **ECOFUTURO ESUDA** é uma aplicação web e mobile (Android) de sustentabilidade que incentiva o uso de transportes ecológicos, recompensando os usuários com **moedas virtuais** que podem ser trocadas por benefícios reais oferecidos por parceiros da Faculdade ESUDA.
+
+A proposta é transformar práticas sustentáveis do dia a dia — como andar de bicicleta, caminhar ou usar transporte público — em recompensas tangíveis, criando um ciclo de engajamento ambiental positivo.
+
+---
 
 A proposta é transformar práticas sustentáveis do dia a dia — como andar de bicicleta, caminhar ou usar transporte público — em recompensas tangíveis, criando um ciclo de engajamento ambiental positivo.
 
@@ -19,6 +23,11 @@ O back-end foi desenvolvido em Python 3.12 com o framework FastAPI.
 - Documentação: Swagger UI (OpenAPI) gerado automaticamente.
 - Validação: Pydantic.
 - Requisitos: 72 requisitos implementados (36 RF, 14 RN, 22 RNF).
+
+  🔹 Mobile (Android / Kotlin)
+O aplicativo mobile foi desenvolvido nativamente para Android:
+- Linguagem: Kotlin com scripts de build em Gradle (Kotlin DSL).
+- Estrutura: Organizado na pasta `android/` utilizando o módulo principal `app/`.
 
 🔹 Front-end (JavaScript)
 A aplicação utiliza 4 padrões de projeto (GoF) na sua estrutura:
@@ -132,6 +141,7 @@ ecofuturo/
 - **TailwindCSS (CDN)** — Estilização utilitária
 - **CSS customizado (styles.css)** — Animações, glassmorphism e estilos complementares
 - **JavaScript (ES Modules)** — Singleton + Facade + Strategy + Observer + SPA com event delegation
+- **Kotlin & Android SDK (Gradle)** — Aplicativo mobile nativo (android/)
 - **Supabase** — Banco de dados PostgreSQL + Autenticação (email/senha, confirmação desativada)
 - **Chart.js** — Gráficos de relatórios
 - **Google Fonts (Inter)** — Tipografia
